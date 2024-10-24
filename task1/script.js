@@ -10,7 +10,7 @@ function updateTimeDisplay() {
     let formattedHours = String(hours).padStart(2, '0');
     let formattedMinutes = String(minutes).padStart(2, '0');
     let formattedSeconds = String(seconds).padStart(2, '0');
-    let formattedMilliseconds = String(Math.floor(milliseconds / 10)).padStart(2, '0');  // Display hundredths of a second
+    let formattedMilliseconds = String(Math.floor(milliseconds / 10)).padStart(2, '0');  
 
     timeDisplay.innerText = `${formattedHours}:${formattedMinutes}:${formattedSeconds}:${formattedMilliseconds}`;
 }
