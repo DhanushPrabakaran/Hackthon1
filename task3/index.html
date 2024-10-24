@@ -5,45 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Home</title>
-    <link rel="stylesheet" href="home.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
   </head>
-
   <body>
-    <div class="header">
-      <div class="logo">
-        <h1>KD</h1>
-      </div>
-      <h2 class="title">Title Bar</h2>
-    </div>
-
-    <div class="container">
-      <div class="box">
-        <button id="one" onclick="getLocation()">Get Location</button>
-        <div class="box-1">
-          <span>City : </span>
-          <p id="city"></p>
-          <br />
-
-          <span>Temperature :</span>
-          <p id="temperature"></p>
-          <br />
-        </div>
-        <div class="box-2">
-          <span>Climate : </span>
-          <p id="climate"></p>
-          <br />
-
-          <span>humidity :</span>
-          <p id="humidity"></p>
-          <br />
-        </div>
-      </div>
-    </div>
     <script>
       var a = document.getElementById("city");
       var b = document.getElementById("temperature");
       var c = document.getElementById("climate");
       var d = document.getElementById("humidity");
+
       function getLocation() {
         if (navigator.geolocation) {
           navigator.geolocation.getCurrentPosition(showPosition);
