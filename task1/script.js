@@ -1,63 +1,87 @@
-let milliseconds = 0, seconds = 0, minutes = 0, hours = 0;
-let timer = null;
+class Stopwatch {
+    constructor() {
+        this.milliseconds = 0;
+        this.seconds = 0;
+        this.minutes = 0;
+        this.hours = 0;
+        this.timer = null;
+        this.lapCount = 0;
 
-const timeDisplay = document.getElementById('time');
-const startBtn = document.getElementById('start-btn');
-const stopBtn = document.getElementById('stop-btn');
-const resetBtn = document.getElementById('reset-btn');
-
-function updateTimeDisplay() {
-    let formattedHours = String(hours).padStart(2, '0');
-    let formattedMinutes = String(minutes).padStart(2, '0');
-    let formattedSeconds = String(seconds).padStart(2, '0');
-    let formattedMilliseconds = String(Math.floor(milliseconds / 10)).padStart(2, '0');  
-
-    timeDisplay.innerText = `${formattedHours}:${formattedMinutes}:${formattedSeconds}:${formattedMilliseconds}`;
+        this.hoursDisplay = document.getElementById('hr');
+        this.minutesDisplay = document.getElementById('min');
+        this.secondsDisplay = document.getElementById('sec');
+        this.millisecondsDisplay = document.getElementById('count');
+        this.startBtn = document.getElementById('start-btn');
+        this.stopBtn = document.getElementById('stop-btn');
+        this.resetBtn = document.getElementById('reset-btn');
+        this.lapBtn = document.getElementById('lap-btn');
+        this.lapTimesList = document.getElementById('laps');
+       
+        this.startBtn.addEventListener('click', () => this.start());
+        this.stopBtn.addEventListener('click', () => this.stop());
+        this.resetBtn.addEventListener('click', () => this.reset());
+        this.lapBtn.addEventListener('click', () => this.recordLap());
+    }
+  
+    updateTimeDisplay() {
+        this.hoursDisplay.innerText = String(this.hours).padStart(2, '0');
+        this.minutesDisplay.innerText = String(this.minutes).padStart(2, '0');
+        this.secondsDisplay.innerText = String(this.seconds).padStart(2, '0');
+        this.millisecondsDisplay.innerText = String(Math.floor(this.milliseconds / 10)).padStart(2, '0');
+    }
+   
+    start() {
+        if (this.timer !== null) return;
+        this.timer = setInterval(() => {
+            this.milliseconds += 10;
+            if (this.milliseconds >= 1000) {
+                this.milliseconds = 0;
+                this.seconds += 1;
+            }
+            if (this.seconds >= 60) {
+                this.seconds = 0;
+                this.minutes += 1;
+            }
+            if (this.minutes >= 60) {
+                this.minutes = 0;
+                this.hours += 1;
+            }
+            this.updateTimeDisplay();
+        }, 10);
+        this.startBtn.disabled = true;
+        this.stopBtn.disabled = false;
+        this.resetBtn.disabled = false;
+        this.lapBtn.disabled = false;
+    }
+   
+    stop() {
+        clearInterval(this.timer);
+        this.timer = null;
+        this.startBtn.disabled = false;
+        this.stopBtn.disabled = true;
+    }
+    
+    reset() {
+        this.stop();
+        this.milliseconds = 0;
+        this.seconds = 0;
+        this.minutes = 0;
+        this.hours = 0;
+        this.updateTimeDisplay();
+        this.resetBtn.disabled = true;
+        this.lapBtn.disabled = true;
+        this.lapCount = 0;
+        this.lapTimesList.innerHTML = '';
+    }
+    
+    recordLap() {
+        this.lapCount++;
+        const lapTime = `${String(this.hours).padStart(2, '0')}:${String(this.minutes).padStart(2, '0')}:${String(this.seconds).padStart(2, '0')}:${String(Math.floor(this.milliseconds / 10)).padStart(2, '0')}`;
+        const lapItem = document.createElement('li');
+        lapItem.innerText = `Lap ${this.lapCount}: ${lapTime}`;
+        lapItem.classList.add('lap-item'); // Add class for styling
+        this.lapTimesList.appendChild(lapItem);
+    }
 }
 
-function startTimer() {
-    if (timer !== null) return;
-
-    timer = setInterval(() => {
-        milliseconds += 10;
-        if (milliseconds >= 1000) {
-            milliseconds = 0;
-            seconds += 1;
-        }
-        if (seconds >= 60) {
-            seconds = 0;
-            minutes += 1;
-        }
-        if (minutes >= 60) {
-            minutes = 0;
-            hours += 1;
-        }
-        updateTimeDisplay(); 
-    }, 10);
-
-    startBtn.disabled = true;
-    stopBtn.disabled = false; 
-    resetBtn.disabled = false; 
-}
-
-function stopTimer() {
-    clearInterval(timer);
-    timer = null;  
-    startBtn.disabled = false;
-    stopBtn.disabled = true;
-}
-
-function resetTimer() {
-    stopTimer(); 
-    milliseconds = 0;
-    seconds = 0;
-    minutes = 0;
-    hours = 0;
-    updateTimeDisplay(); 
-    resetBtn.disabled = true;
-}
-
-
-startBtn.addEventListener('click', startTimer);
-stopBtn.addEventListener('click', stopTimer);
-resetBtn.addEventListener('click', resetTimer);
+const stopwatch = new Stopwatch();
