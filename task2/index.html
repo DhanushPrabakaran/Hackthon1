@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="from-gray-100 via-gray-400 to-gray-500 p-10">
+    <div class="mx-auto bg-white p-8 rounded-md shadow-md">
+      <h3 class="text-2xl font-bold mb-6 text-center">MCQ Quiz</h3>
+      <form id="quizForm" class="space-y-4">
+        <div class="flex flex-col mb-4">
+          <label for="q1" class="text-lg text-gray-800 mb-2">
+            1. What does HTML stand for?
+          </label>
+          <div class="flex items-center space-x-4">
+            <input
+              type="radio"
+              id="q1a"
+              name="q1"
+              value="a"
+              class="mr-2"
+              required
+            />
+            <label for="q1a" class="text-gray-700">
+              a) Hyper Text Markup Language
+            </label>
+          </div>
+          <div class="flex items-center space-x-4">
+            <input
+              type="radio"
+              id="q1b"
+              name="q1"
+              value="b"
+              class="mr-2"
+              required
+            />
+            <label for="q1b" class="text-gray-700">
+              b) Hyper Transfer Markup Language
+            </label>
+          </div>
+          <div class="flex items-center space-x-4">
+            <input
+              type="radio"
+              id="q1c"
+              name="q1"
+              value="c"
+              class="mr-2"
+              required
+            />
+            <label for="q1c" class="text-gray-700">
+              c) Hyperlink and Text Markup Language
+            </label>
+          </div>
+          <div class="flex items-center space-x-4">
+            <input
+              type="radio"
+              id="q1d"
+              name="q1"
+              value="d"
+              class="mr-2"
+              required
+            />
+            <label for="q1d" class="text-gray-700">
+              d) Hyper Tool Multi-language
+            </label>
+          </div>
+        </div>
+
+        <button
+          type="button"
+          onclick="submitQuiz()"
+          class="bg-green-500 text-white px-4 py-2 rounded-md mt-8"
+        >
+          Submit
+        </button>
+
+        <button
+          type="button"
+          onclick="restartQuiz()"
+          class="bg-red-500 text-white px-3 py-2 rounded-md mt-4"
+        >
+          Restart Quiz
+        </button>
+      </form>
+
+      <div id="result" class="mt-8 hidden">
+        <h2 class="text-2xl font-bold mb-4 text-center">???? Quiz Result</h2>
+        <p id="score" class="text-lg font-semibold mb-2 text-center"></p>
+        <p id="feedback" class="text-gray-700 text-center"></p>
+      </div>
+    </div>
+
+    <script src="/script.js"></script>
+  </body>
+</html>
