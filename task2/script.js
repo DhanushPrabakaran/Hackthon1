@@ -1,15 +1,11 @@
-const fs = require('fs').promises;
-
-async function fetchJSONData() {
-    try {
-        const data = await fs.readFile('./data.json', 'utf-8');
-        return data;
-    } catch (error) {
-        console.error('Unable to fetch data:', error);
-    }
+window.addEventListener("load", (event) => {
+  alert("page loades");
+});
+function shuffle(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
 }
 
-(async () => {
-    const Data = await fetchJSONData();
-    console.log(Data);
-})();
+shuffle(data);
