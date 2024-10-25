@@ -40,6 +40,7 @@ const data = [
     correct_answer: "To link external resources like CSS and JavaScript",
   },
 ];
+
 const feedbackres = [
   "Well, this is a bold statement! You’ve managed to completely avoid all correct answers—truly an impressive level of consistency. Maybe coding isn’t your calling, but at least you're really good at finding the wrong path!",
   "Well, someone clearly tried! It's nice to see such… *creative* interpretations of syntax. Maybe code isn’t your best friend, but hey, practice makes… fewer errors.",
@@ -48,11 +49,14 @@ const feedbackres = [
   "So close! Looks like you know your stuff, or you're just excellent at pretending. Either way, impressive… but we’re still not giving out bonus points for *almost*.",
   "Wow, look at that—a perfect score! Either you're a coding genius, or you've mastered the fine art of multiple-choice strategy. Kudos, though—we might actually trust you with a codebase now!",
 ];
+
 const Form = document.getElementById("quizForm");
 const quizForm = document.getElementById("questions");
 const Score = document.getElementById("score");
 const Feedback = document.getElementById("feedback");
 const Title = document.getElementById("title");
+const resultDiv = document.getElementById("result");
+
 window.addEventListener("load", datafeed());
 Form.addEventListener("submit", logSubmit);
 
@@ -94,6 +98,10 @@ function logSubmit(event) {
       score++;
     }
   });
+
+  // Show the result section by removing the 'hidden' class
+  resultDiv.classList.remove("hidden");
+
   Title.textContent = "Quiz Result";
   Score.textContent = `${score}/${data.length}`;
   Feedback.textContent = `"${feedbackres[score]}"`;

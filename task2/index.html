@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -13,46 +13,55 @@
   </head>
   <style>
     * {
-      margin: 0px;
+      margin: 0;
+      padding: 0;
       box-sizing: border-box;
       font-family: "Teko", sans-serif;
-      font-weight: 600;
+    }
+    body {
+      background: linear-gradient(to right, #e2e8f0, #cbd5e1, #94a3b8);
     }
   </style>
-  <body class="from-gray-100 via-gray-400 to-gray-500 p-10">
-    <div class="mx-auto bg-white p-8 rounded-md shadow-md">
-      <h3 class="text-2xl font-bold mb-6 text-center">MCQ Quiz</h3>
-      <form id="quizForm" class="space-y-4">
+  <body class="min-h-screen text-2xl flex items-center justify-center">
+    <div class="max-w-lg w-full p-8 bg-white rounded-lg shadow-lg">
+      <h3 class="text-3xl font-bold mb-6 text-center text-gray-800">
+        MCQ Quiz
+      </h3>
+      <form id="quizForm" class="space-y-6">
         <div id="questions"></div>
 
-        <button
-          type="submit"
-          class="bg-green-500 text-white px-4 py-2 rounded-md mt-8"
-        >
-          Submit
-        </button>
-        <button
-          type="button"
-          onclick="shuffle()"
-          class="bg-red-500 text-white px-3 py-2 rounded-md mt-4"
-        >
-          Randomize The Questions
-        </button>
+        <div class="flex justify-between mt-6">
+          <button
+            type="submit"
+            class="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-md transition-all duration-200"
+          >
+            Submit
+          </button>
+          <button
+            type="button"
+            onclick="shuffle()"
+            class="w-full ml-4 bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-md transition-all duration-200"
+          >
+            Randomize
+          </button>
+        </div>
       </form>
 
-      <div
-        id="result"
-        class="mt-8 bg-red-500 rounded-md border border-gray-300 shadow-2xl pb-2"
-      >
-        <h2
-          id="title"
-          class="text-2xl font-bold mb-4 text-center w-full bg-white p-3"
-        ></h2>
-        <p id="score" class="font-semibold mb-2 text-center text-4xl"></p>
-        <p
-          id="feedback"
-          class="text-white text-center font-extrabold text-xl"
-        ></p>
+      <div id="result" class="mt-10 hidden">
+        <div class="bg-gray-100 p-6 rounded-lg shadow-inner">
+          <h2
+            id="title"
+            class="text-2xl font-bold mb-4 text-center text-gray-800"
+          ></h2>
+          <p
+            id="score"
+            class="text-4xl font-bold text-green-600 text-center mb-2"
+          ></p>
+          <p
+            id="feedback"
+            class="text-lg font-semibold text-center text-gray-700"
+          ></p>
+        </div>
       </div>
     </div>
 
