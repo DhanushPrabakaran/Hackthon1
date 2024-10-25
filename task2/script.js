@@ -55,7 +55,7 @@ const quizForm = document.getElementById("questions");
 const Score = document.getElementById("score");
 const Feedback = document.getElementById("feedback");
 const Title = document.getElementById("title");
-const resultDiv = document.getElementById("result");
+const resultModal = document.getElementById("resultModal");
 
 window.addEventListener("load", datafeed());
 Form.addEventListener("submit", logSubmit);
@@ -64,8 +64,8 @@ function datafeed() {
   let quizHTML = "";
   data.forEach((item, index) => {
     quizHTML += `
-            <div class="flex flex-col  mb-4">
-                <label for="q${index + 1}" class="text-2xl text-gray-800 mb-2">
+            <div class="flex flex-col mb-4">
+                <label for="q${index + 1}" class="text-lg text-gray-800 mb-2">
                     ${index + 1}. ${item.question}
                 </label>
         `;
@@ -99,12 +99,12 @@ function logSubmit(event) {
     }
   });
 
-  // Show the result section by removing the 'hidden' class
-  resultDiv.classList.remove("hidden");
-
   Title.textContent = "Quiz Result";
   Score.textContent = `${score}/${data.length}`;
   Feedback.textContent = `"${feedbackres[score]}"`;
+
+  // Show the modal
+  resultModal.classList.remove("hidden");
 }
 
 function shuffle() {
@@ -113,4 +113,8 @@ function shuffle() {
     [data[i], data[j]] = [data[j], data[i]];
   }
   datafeed();
+}
+
+function closeModal() {
+  resultModal.classList.add("hidden");
 }
