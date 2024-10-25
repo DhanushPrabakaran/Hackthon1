@@ -65,7 +65,7 @@ function datafeed() {
   data.forEach((item, index) => {
     quizHTML += `
             <div class="flex flex-col mb-4">
-                <label for="q${index + 1}" class="text-lg text-gray-800 mb-2">
+                <label for="q${index + 1}" class="text-2xl text-gray-100 mb-2">
                     ${index + 1}. ${item.question}
                 </label>
         `;
@@ -75,7 +75,9 @@ function datafeed() {
                     <input type="radio" id="q${index + 1}a${i}" name="q${
         index + 1
       }" value="${option}" class="mr-2">
-                    <label for="q${index + 1}a${i}" class="text-gray-700">
+                    <label for="q${
+                      index + 1
+                    }a${i}" class="text-gray-200 text-lg">
                         ${String.fromCharCode(97 + i)}) ${option}
                     </label>
                 </div>

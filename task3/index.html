@@ -7,7 +7,6 @@
     <title>Weather App</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-      /* Additional styles for the glassmorphism effect */
       .glass {
         background: rgba(255, 255, 255, 0.2);
         backdrop-filter: blur(10px);
@@ -20,7 +19,6 @@
     class="bg-gradient-to-br from-blue-500 to-purple-600 min-h-screen flex items-center justify-center p-4"
   >
     <div class="w-full max-w-lg">
-      <!-- Form to Input Location -->
       <form
         id="weather-form"
         class="flex flex-col items-center mb-8"
@@ -48,7 +46,12 @@
         <h2 id="city" class="text-2xl font-bold text-white mb-4">City Name</h2>
         <div class="text-white flex items-center justify-center mb-4">
           <span id="temperature" class="text-6xl font-bold">--°C</span>
-          <img id="image" src="" alt="Weather Icon" class="w-16 h-16 ml-4" />
+          <img
+            id="image"
+            src="https://openweathermap.org/img/wn/03d@2x.png"
+            alt="Weather Icon"
+            class="w-16 h-16 ml-4"
+          />
         </div>
         <p id="climate" class="text-lg text-gray-200">Weather</p>
         <p id="humidity" class="text-gray-300">Humidity: --%</p>
