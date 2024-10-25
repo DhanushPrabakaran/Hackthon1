@@ -65,7 +65,7 @@ function datafeed() {
   data.forEach((item, index) => {
     quizHTML += `
             <div class="flex flex-col mb-4">
-                <label for="q${index + 1}" class="text-lg text-gray-800 mb-2">
+                <label for="q${index + 1}" class="text-2xl text-gray-800 mb-2">
                     ${index + 1}. ${item.question}
                 </label>
         `;
