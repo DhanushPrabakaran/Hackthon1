@@ -4,7 +4,21 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Teko:wght@300..700&display=swap"
+      rel="stylesheet"
+    />
   </head>
+  <style>
+    * {
+      margin: 0px;
+      box-sizing: border-box;
+      font-family: "Teko", sans-serif;
+      font-weight: 600;
+    }
+  </style>
   <body class="from-gray-100 via-gray-400 to-gray-500 p-10">
     <div class="mx-auto bg-white p-8 rounded-md shadow-md">
       <h3 class="text-2xl font-bold mb-6 text-center">MCQ Quiz</h3>
@@ -26,10 +40,19 @@
         </button>
       </form>
 
-      <div id="result" class="mt-8">
-        <h2 class="text-2xl font-bold mb-4 text-center">Quiz Result</h2>
-        <p id="score" class="text-lg font-semibold mb-2 text-center"></p>
-        <p id="feedback" class="text-red-700 text-center font-extrabold text-xl"></p>
+      <div
+        id="result"
+        class="mt-8 bg-red-500 rounded-md border border-gray-300 shadow-2xl pb-2"
+      >
+        <h2
+          id="title"
+          class="text-2xl font-bold mb-4 text-center w-full bg-white p-3"
+        ></h2>
+        <p id="score" class="font-semibold mb-2 text-center text-4xl"></p>
+        <p
+          id="feedback"
+          class="text-white text-center font-extrabold text-xl"
+        ></p>
       </div>
     </div>
 

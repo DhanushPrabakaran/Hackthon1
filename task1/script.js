@@ -79,7 +79,7 @@ class Stopwatch {
         const lapTime = `${String(this.hours).padStart(2, '0')}:${String(this.minutes).padStart(2, '0')}:${String(this.seconds).padStart(2, '0')}:${String(Math.floor(this.milliseconds / 10)).padStart(2, '0')}`;
         
         const lapCard = document.createElement('div');
-        lapCard.classList.add('lap-card'); 
+        lapCard.classList.add('lap-card');
         lapCard.innerHTML = `<strong>Lap ${this.lapCount}:</strong> ${lapTime}`;
         
         this.lapTimesList.appendChild(lapCard);

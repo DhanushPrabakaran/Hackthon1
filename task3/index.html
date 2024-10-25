@@ -4,38 +4,43 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Home</title>
+    <title>Weather App</title>
     <script src="https://cdn.tailwindcss.com"></script>
   </head>
-  <body>
-    <script>
-      var a = document.getElementById("city");
-      var b = document.getElementById("temperature");
-      var c = document.getElementById("climate");
-      var d = document.getElementById("humidity");
+  <body
+    class="bg-white text-black flex justify-center items-center flex-col h-screen"
+  >
+    <form
+      id="weather-form"
+      class="flex flex-col items-center m-4"
+      onsubmit="getLocation(); return false;"
+    >
+      <label for="location" class="text-lg mb-2">Enter Location</label>
+      <input
+        type="text"
+        id="location-input"
+        name="location"
+        class="bg-gray-800 text-white p-2 mb-4 rounded-md"
+        placeholder="City name"
+      />
+      <button
+        type="submit"
+        class="bg-red-500 hover:bg-red-600 text-white p-2 rounded-md"
+      >
+        Get Weather
+      </button>
+    </form>
 
-      function getLocation() {
-        if (navigator.geolocation) {
-          navigator.geolocation.getCurrentPosition(showPosition);
-        }
-      }
-      let city = "coimbatore";
-      let exclude = "daily";
-      async function showPosition(position) {
-        var apikey = "365124a20bf79015ed73a9bb0f520a09";
-        const resp = await fetch(
-          `https://api.openweathermap.org/data/2.5/weather?q=${city}&exclude=${exclude}&appid=${apikey}`
-        );
-        var data = await resp.json();
+    <div
+      class="text-center bg-red-500 min-w-96 flex flex-col justify-center items-center rounded-lg"
+    >
+      <img id="image" src="" alt="" srcset="" class="w-40" />
+      <h2 id="city" class="text-2xl font-bold mb-2"></h2>
+      <p id="temperature" class="text-xl"></p>
+      <p id="climate" class="text-lg"></p>
+      <p id="humidity" class="text-lg"></p>
+    </div>
 
-        a.innerHTML = data.name;
-        b.innerHTML = Math.floor(data["main"].temp - 273) + "<sup>o</sup>";
-        c.innerHTML = data["weather"][0].description;
-        d.innerHTML = data["main"].humidity;
-        console.log(data);
-      }
-    </script>
-
-    <div class="footer"></div>
+    <script src="./script.js"></script>
   </body>
 </html>
