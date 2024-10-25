@@ -10,6 +10,10 @@
       href="https://fonts.googleapis.com/css2?family=Teko:wght@300..700&display=swap"
       rel="stylesheet"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
   </head>
   <style>
     * {
@@ -57,10 +61,12 @@
       id="resultModal"
       class="fixed inset-0 hidden bg-black bg-opacity-50 flex items-center justify-center"
     >
-      <div class="bg-white rounded-lg shadow-lg p-6 w-80 max-w-md">
+      <div
+        class="bg-white animate__animated animate__backInDown rounded-lg shadow-lg p-6 w-80 max-w-md"
+      >
         <button
           onclick="closeModal()"
-          class="absolute top-3 right-3 text-white hover:text-gray-700 text-3xl font-bold"
+          class="absolute top-3 right-3 text-gray-900 text-3xl font-bold"
         >
           &times;
         </button>
