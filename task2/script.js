@@ -139,8 +139,9 @@ function logSubmit(event) {
   // Show the result modal
   resultModal.classList.remove("hidden");
 
-  // Clear saved answers from localStorage
+  // Clear saved answers from localStorage and reset form
   clearSavedAnswers();
+  Form.reset();
 }
 
 function shuffle() {
