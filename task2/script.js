@@ -105,7 +105,7 @@ function logSubmit(event) {
   Score.textContent = `${score}/${data.length}`;
   Feedback.textContent = `"${feedbackres[score]}"`;
 
-  // Show the modal
+  
   resultModal.classList.remove("hidden");
 }
 
