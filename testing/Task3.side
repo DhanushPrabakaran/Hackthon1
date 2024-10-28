@@ -1,0 +1,224 @@
+{
+  "id": "777cabd6-7a9d-4925-b024-6403e1caaa5e",
+  "version": "2.0",
+  "name": "Task3",
+  "url": "http://127.0.0.1:5500",
+  "tests": [{
+    "id": "eb873cad-31b0-46f9-a10f-8e709e286ee5",
+    "name": "Task3",
+    "commands": [{
+      "id": "c2a59028-0035-4f94-bac5-248c0c044a60",
+      "comment": "",
+      "command": "open",
+      "target": "/Hackthon1/task3/index.html",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "a9f8c344-164f-4cae-a550-3e8ebbb9a54d",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1308x741",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "613524ef-e563-4068-a4b1-65c1c8ffca5c",
+      "comment": "",
+      "command": "click",
+      "target": "id=location-input",
+      "targets": [
+        ["id=location-input", "id"],
+        ["css=#location-input", "css:finder"],
+        ["xpath=//input[@id='location-input']", "xpath:attributes"],
+        ["xpath=//form[@id='weather-form']/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "ad1fa739-301f-4d5f-bef4-b65f75ab7838",
+      "comment": "",
+      "command": "type",
+      "target": "id=location-input",
+      "targets": [
+        ["id=location-input", "id"],
+        ["css=#location-input", "css:finder"],
+        ["xpath=//input[@id='location-input']", "xpath:attributes"],
+        ["xpath=//form[@id='weather-form']/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "coimbatore"
+    }, {
+      "id": "bfba1da9-7e11-43f0-bd08-32d3ab27df30",
+      "comment": "",
+      "command": "click",
+      "target": "css=.bg-green-500",
+      "targets": [
+        ["css=.bg-green-500", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//form[@id='weather-form']/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Get Weather')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "c3ea1fa0-c6cb-43db-b387-02e5026f5e02",
+      "comment": "",
+      "command": "click",
+      "target": "id=location-input",
+      "targets": [
+        ["id=location-input", "id"],
+        ["css=#location-input", "css:finder"],
+        ["xpath=//input[@id='location-input']", "xpath:attributes"],
+        ["xpath=//form[@id='weather-form']/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "b63be9b4-f9e9-42b3-b0cb-cb1c774618d7",
+      "comment": "",
+      "command": "type",
+      "target": "id=location-input",
+      "targets": [
+        ["id=location-input", "id"],
+        ["css=#location-input", "css:finder"],
+        ["xpath=//input[@id='location-input']", "xpath:attributes"],
+        ["xpath=//form[@id='weather-form']/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "chennai"
+    }, {
+      "id": "f2d9e8cc-b68a-4b3f-8dff-626dd8f7f435",
+      "comment": "",
+      "command": "click",
+      "target": "css=.bg-green-500",
+      "targets": [
+        ["css=.bg-green-500", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//form[@id='weather-form']/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Get Weather')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "c176e6f8-8698-4004-84a4-49f99dadec7d",
+      "comment": "",
+      "command": "click",
+      "target": "id=location-input",
+      "targets": [
+        ["id=location-input", "id"],
+        ["css=#location-input", "css:finder"],
+        ["xpath=//input[@id='location-input']", "xpath:attributes"],
+        ["xpath=//form[@id='weather-form']/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "e4063797-b6b7-46fc-a170-40003f9e5cf0",
+      "comment": "",
+      "command": "type",
+      "target": "id=location-input",
+      "targets": [
+        ["id=location-input", "id"],
+        ["css=#location-input", "css:finder"],
+        ["xpath=//input[@id='location-input']", "xpath:attributes"],
+        ["xpath=//form[@id='weather-form']/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "america"
+    }, {
+      "id": "259dca39-bb37-4456-9b97-03ccec7489ab",
+      "comment": "",
+      "command": "sendKeys",
+      "target": "id=location-input",
+      "targets": [
+        ["id=location-input", "id"],
+        ["css=#location-input", "css:finder"],
+        ["xpath=//input[@id='location-input']", "xpath:attributes"],
+        ["xpath=//form[@id='weather-form']/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "${KEY_ENTER}"
+    }, {
+      "id": "2a08a768-955e-4964-8136-9696f5fde702",
+      "comment": "",
+      "command": "type",
+      "target": "id=location-input",
+      "targets": [
+        ["id=location-input", "id"],
+        ["css=#location-input", "css:finder"],
+        ["xpath=//input[@id='location-input']", "xpath:attributes"],
+        ["xpath=//form[@id='weather-form']/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "c4c5d390-02ed-4481-9e57-b6aa36552086",
+      "comment": "",
+      "command": "click",
+      "target": "css=.bg-green-500",
+      "targets": [
+        ["css=.bg-green-500", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//form[@id='weather-form']/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Get Weather')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "b341a456-2199-4cce-b403-cfa713e4e168",
+      "comment": "",
+      "command": "assertAlert",
+      "target": "Please enter a city name.",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "6aa0d206-2ae8-457e-907d-db416ce47129",
+      "comment": "",
+      "command": "click",
+      "target": "id=location-input",
+      "targets": [
+        ["id=location-input", "id"],
+        ["css=#location-input", "css:finder"],
+        ["xpath=//input[@id='location-input']", "xpath:attributes"],
+        ["xpath=//form[@id='weather-form']/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "20d11538-b59f-477d-82a9-0291327604cd",
+      "comment": "",
+      "command": "type",
+      "target": "id=location-input",
+      "targets": [
+        ["id=location-input", "id"],
+        ["css=#location-input", "css:finder"],
+        ["xpath=//input[@id='location-input']", "xpath:attributes"],
+        ["xpath=//form[@id='weather-form']/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "london"
+    }, {
+      "id": "d8f962a1-f140-4241-81fe-c41b328984c1",
+      "comment": "",
+      "command": "click",
+      "target": "css=.bg-green-500",
+      "targets": [
+        ["css=.bg-green-500", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//form[@id='weather-form']/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Get Weather')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "2d531426-90d9-4606-b63b-82d0205ed578",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["eb873cad-31b0-46f9-a10f-8e709e286ee5"]
+  }],
+  "urls": ["http://127.0.0.1:5500/"],
+  "plugins": []
+}
