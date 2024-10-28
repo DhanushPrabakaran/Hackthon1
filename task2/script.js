@@ -60,34 +60,65 @@ const resultModal = document.getElementById("resultModal");
 window.addEventListener("load", datafeed());
 Form.addEventListener("submit", logSubmit);
 
+// Save selected option in localStorage
+function saveAnswer(questionIndex, answer) {
+  localStorage.setItem(`question${questionIndex}`, answer);
+}
+
+// Load saved answers from localStorage
+function loadSavedAnswers() {
+  data.forEach((item, index) => {
+    const savedAnswer = localStorage.getItem(`question${index}`);
+    if (savedAnswer) {
+      const option = document.querySelector(
+        `input[name="q${index + 1}"][value="${savedAnswer}"]`
+      );
+      if (option) {
+        option.checked = true;
+      }
+    }
+  });
+}
+
+// Clear saved answers in localStorage
+function clearSavedAnswers() {
+  data.forEach((_, index) => {
+    localStorage.removeItem(`question${index}`);
+  });
+}
+
+// Update `datafeed` to attach the `saveAnswer` function on change event
 function datafeed() {
   let quizHTML = "";
   data.forEach((item, index) => {
     quizHTML += `
-            <div class="flex flex-col mb-4">
-                <label for="q${index + 1}" class="text-2xl text-gray-100 mb-2">
-                    ${index + 1}. ${item.question}
-                </label>
-        `;
+      <div class="flex flex-col mb-4">
+        <label for="q${index + 1}" class="text-2xl text-gray-100 mb-2">
+          ${index + 1}. ${item.question}
+        </label>
+    `;
     item.options.forEach((option, i) => {
       quizHTML += `
-                <div class="flex items-center space-x-4">
-                    <input type="radio" id="q${index + 1}a${i}" name="q${
+        <div class="flex items-center space-x-4">
+          <input type="radio" id="q${index + 1}a${i}" name="q${
         index + 1
-      }" value="${option}" class="mr-2">
-                    <label for="q${
-                      index + 1
-                    }a${i}" class="text-gray-200 text-lg">
-                        ${String.fromCharCode(97 + i)}) ${option}
-                    </label>
-                </div>
-            `;
+      }" value="${option}"
+            class="mr-2" onchange="saveAnswer(${index}, '${option}')">
+          <label for="q${index + 1}a${i}" class="text-gray-200 text-lg">
+            ${String.fromCharCode(97 + i)}) ${option}
+          </label>
+        </div>
+      `;
     });
     quizHTML += `</div>`;
   });
   quizForm.innerHTML = quizHTML;
+
+  // Load previously saved answers
+  loadSavedAnswers();
 }
 
+// Update `logSubmit` to clear answers after showing results
 function logSubmit(event) {
   event.preventDefault();
   let score = 0;
@@ -105,8 +136,11 @@ function logSubmit(event) {
   Score.textContent = `${score}/${data.length}`;
   Feedback.textContent = `"${feedbackres[score]}"`;
 
-  
+  // Show the result modal
   resultModal.classList.remove("hidden");
+
+  // Clear saved answers from localStorage
+  clearSavedAnswers();
 }
 
 function shuffle() {
