@@ -103,7 +103,7 @@ function datafeed() {
           <input type="radio" id="q${index + 1}a${i}" name="q${
         index + 1
       }" value="${option}"
-            class="mr-2" onchange="saveAnswer(${index}, '${option}')">
+            class="mr-2" onchange="saveAnswer(${index}, '${option}')" required>
           <label for="q${index + 1}a${i}" class="text-gray-200 text-lg">
             ${String.fromCharCode(97 + i)}) ${option}
           </label>
