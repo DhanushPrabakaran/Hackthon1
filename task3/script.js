@@ -14,7 +14,7 @@ async function fetchRandomImage(query) {
     return `url('${data.urls.full}')`;
   } catch (error) {
     console.error("Error fetching random image:", error);
-    return "url('https://i.pinimg.com/1200x/de/c0/e1/dec0e1d86817d93e3a89b4f25cb15ab7.jpg')"; // Default background
+    return "url('https://i.pinimg.com/1200x/de/c0/e1/dec0e1d86817d93e3a89b4f25cb15ab7.jpg')";
   }
 }
 

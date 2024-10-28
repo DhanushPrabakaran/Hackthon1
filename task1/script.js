@@ -21,7 +21,7 @@ class Stopwatch {
     this.resetBtn.addEventListener("click", () => this.reset());
     this.lapBtn.addEventListener("click", () => this.recordLap());
 
-    // Load the saved state from local storage
+
     this.loadState();
   }
 
@@ -51,7 +51,7 @@ class Stopwatch {
         this.hours += 1;
       }
       this.updateTimeDisplay();
-      this.saveState(); // Save time continuously while running
+      this.saveState(); 
     }, 10);
     this.startBtn.disabled = true;
     this.stopBtn.disabled = false;
@@ -64,7 +64,7 @@ class Stopwatch {
     this.timer = null;
     this.startBtn.disabled = false;
     this.stopBtn.disabled = true;
-    this.saveState(); // Save the state when stopped
+    this.saveState(); 
   }
 
   reset() {
@@ -78,7 +78,7 @@ class Stopwatch {
     this.lapBtn.disabled = true;
     this.lapCount = 0;
     this.lapTimesList.innerHTML = "";
-    localStorage.removeItem("stopwatchState"); // Clear saved state on reset
+    localStorage.removeItem("stopwatchState"); 
   }
 
   recordLap() {
@@ -98,7 +98,7 @@ class Stopwatch {
     lapCard.innerHTML = `<strong>Lap ${this.lapCount}:</strong> ${lapTime}`;
     this.lapTimesList.appendChild(lapCard);
 
-    this.saveState(); // Save state when a lap is recorded
+    this.saveState();
   }
 
   saveState() {
@@ -128,7 +128,7 @@ class Stopwatch {
       this.resetBtn.disabled = false;
       this.lapBtn.disabled = false;
 
-      // Restore laps
+   
       laps.forEach((lapHTML) => {
         const lapCard = document.createElement("div");
         lapCard.classList.add("lap-card");

@@ -60,12 +60,10 @@ const resultModal = document.getElementById("resultModal");
 window.addEventListener("load", datafeed());
 Form.addEventListener("submit", logSubmit);
 
-// Save selected option in localStorage
 function saveAnswer(questionIndex, answer) {
   localStorage.setItem(`question${questionIndex}`, answer);
 }
 
-// Load saved answers from localStorage
 function loadSavedAnswers() {
   data.forEach((item, index) => {
     const savedAnswer = localStorage.getItem(`question${index}`);
@@ -80,14 +78,12 @@ function loadSavedAnswers() {
   });
 }
 
-// Clear saved answers in localStorage
 function clearSavedAnswers() {
   data.forEach((_, index) => {
     localStorage.removeItem(`question${index}`);
   });
 }
 
-// Update `datafeed` to attach the `saveAnswer` function on change event
 function datafeed() {
   let quizHTML = "";
   data.forEach((item, index) => {
@@ -113,12 +109,8 @@ function datafeed() {
     quizHTML += `</div>`;
   });
   quizForm.innerHTML = quizHTML;
-
-  // Load previously saved answers
   loadSavedAnswers();
 }
-
-// Update `logSubmit` to clear answers after showing results
 function logSubmit(event) {
   event.preventDefault();
   let score = 0;
@@ -136,10 +128,8 @@ function logSubmit(event) {
   Score.textContent = `${score}/${data.length}`;
   Feedback.textContent = `"${feedbackres[score]}"`;
 
-  // Show the result modal
   resultModal.classList.remove("hidden");
 
-  // Clear saved answers from localStorage and reset form
   clearSavedAnswers();
   Form.reset();
 }
@@ -150,6 +140,7 @@ function shuffle() {
     [data[i], data[j]] = [data[j], data[i]];
   }
   datafeed();
+  clearSavedAnswers();
 }
 
 function closeModal() {
