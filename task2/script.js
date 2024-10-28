@@ -57,7 +57,10 @@ const Feedback = document.getElementById("feedback");
 const Title = document.getElementById("title");
 const resultModal = document.getElementById("resultModal");
 
-window.addEventListener("load", datafeed());
+// function
+window.addEventListener("load", () => {
+  datafeed();
+});
 Form.addEventListener("submit", logSubmit);
 
 function saveAnswer(questionIndex, answer) {
@@ -145,4 +148,34 @@ function shuffle() {
 
 function closeModal() {
   resultModal.classList.add("hidden");
+}
+
+var sec = 15;
+var time = setInterval(myTimer, 1000);
+
+function myTimer() {
+  document.getElementById("timer").innerHTML = sec + "sec left";
+  sec--;
+  if (sec == -1) {
+    clearInterval(time);
+    let score = 0;
+
+    data.forEach((item, index) => {
+      const userans = document.querySelector(
+        `input[name="q${index + 1}"]:checked`
+      );
+      if (userans && userans.value === item.correct_answer) {
+        score++;
+      }
+    });
+
+    Title.textContent = "Quiz Result";
+    Score.textContent = `${score}/${data.length}`;
+    Feedback.textContent = `"${feedbackres[score]}"`;
+
+    resultModal.classList.remove("hidden");
+
+    clearSavedAnswers();
+    Form.reset();
+  }
 }
