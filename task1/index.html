@@ -33,9 +33,16 @@
   <body>
     <h1 class="stopwatch-heading">Stopwatch</h1>
     <div class="container">
-      <div class="card">
+      <div
+        class="card"
+        style="
+          background-color: rgb(44, 44, 44);
+          padding: 10px;
+          border-radius: 20px;
+        "
+      >
         <div class="card-inner">
-          <div id="time">
+          <div id="time" style="color: black">
             <span class="digit" id="hr">00</span>
             <span class="txt">Hr</span>
             <span class="digit" id="min">00</span>
@@ -81,7 +88,7 @@
         </div>
       </div>
       <div class="laps-card">
-        <h2>Laps</h2>
+        <h2 style="color: rgb(128, 128, 128)">Laps</h2>
         <ul id="laps" class="list-group"></ul>
       </div>
     </div>
